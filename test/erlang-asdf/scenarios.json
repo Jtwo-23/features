@@ -1,6 +1,12 @@
 {
-    "test": {
-        "image": "mcr.microsoft.com/devcontainers/base:debian",
+    "test_debian_bullseye": {
+        "image": "debian:bullseye",
+        "features": {
+            "erlang-asdf": {}
+        }
+    },
+    "test_ubuntu": {
+        "image": "ubuntu",
         "features": {
             "erlang-asdf": {}
         }

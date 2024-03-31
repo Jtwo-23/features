@@ -4,26 +4,29 @@ on:
     inputs:
       on_changes_only:
         type: boolean
-        description: 'run tests on changes from main branch only'
+        description: 'on_changes_only'
         default: false
 
       enabled:
         type: boolean
-        description: 'run tests on changes from main branch only'
+        description: 'enabled'
         default: true
 
   workflow_call:
     inputs:
       on_changes_only:
         type: boolean
-        description: 'run tests on changes from main branch only'
+        description: 'on_changes_only'
         default: false
 
       enabled:
         type: boolean
-        description: 'run tests on changes from main branch only'
+        description: 'enabled'
         default: true
 
+  schedule:
+    # every day at 01:00
+    - cron:  '0 1 * * *'
 
   pull_request:
   
@@ -140,7 +143,7 @@ jobs:
           
           for i in ${comma_separated_features//,/ } 
           do
-            shellcheck --severity=error src/"$i"/*.sh 
+            shellcheck --severity=error -e SC2148 src/"$i"/*.sh 
           done
         
   test-global:

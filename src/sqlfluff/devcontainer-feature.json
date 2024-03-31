@@ -1,0 +1,30 @@
+{
+    "id": "sqlfluff",
+    "version": "1.0.2",
+    "name": "SqlFluff (via pipx)",
+    "documentationURL": "http://github.com/devcontainers-contrib/features/tree/main/src/sqlfluff",
+    "description": "Fluff is an extensible and modular linter designed to help you write good SQL and catch errors and bad SQL before it hits your database.",
+    "options": {
+        "version": {
+            "default": "latest",
+            "description": "Select the version to install.",
+            "proposals": [
+                "latest"
+            ],
+            "type": "string"
+        },
+        "plugins": {
+            "default": "",
+            "description": "A space delimitered list of sqlfluff plugins (will be injected into the sqlfluff pipx env). See proposals for examples.",
+            "proposals": [
+                "sqlfluff-templater-dbt==2.3.5",
+                "sqlfluff-templater-dbt sqlfluff-plugin-sparksql-upgrade"
+            ],
+            "type": "string"
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers-contrib/features/pipx-package",
+        "ghcr.io/devcontainers/features/python"
+    ]
+}
